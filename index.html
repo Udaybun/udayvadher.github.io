@@ -1,0 +1,1639 @@
+<!-- TO ADD YOUR PHOTO: place uday.jpg in the same folder as this index.html file -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uday Vadher — Real Estate & Marketing</title>
+  <meta name="description" content="Senior Relationship Manager at PropTiger.com specializing in GIFT City real estate and marketing. Closed ₹5.3+ Cr in 60 days.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&family=Lato:wght@300;400;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --bg: #f5ede0;
+      --bg2: #ede0ce;
+      --bg3: #e2d0b8;
+      --surface: #ffffff;
+      --ink: #100d0a;
+      --sienna: #c45c28;
+      --sienna-lt: #e07040;
+      --sienna-dim: rgba(196,92,40,0.10);
+      --gold: #b8882a;
+      --gold-lt: #d4a84e;
+      --gold-dim: rgba(184,136,42,0.10);
+      --sage: #5a7a52;
+      --sage-dim: rgba(90,122,82,0.10);
+      --text-hi: #1a1108;
+      --text-md: #5a4530;
+      --text-lo: #9e8470;
+      --text-ghost: #c8b09a;
+    }
+
+    /* ========== RESET & BASE ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg);
+      color: var(--text-md);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' result='noise' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.035' /%3E%3C/svg%3E");
+      background-attachment: fixed;
+      opacity: 0.035;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ========== TYPOGRAPHY ========== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-hi);
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--sienna);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background: var(--sienna);
+      flex-shrink: 0;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(-2deg);
+      }
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes pulse-green {
+      0%, 100% {
+        box-shadow: 0 0 4px #4ade80;
+      }
+      50% {
+        box-shadow: 0 0 16px #4ade80;
+      }
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Scroll reveal base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Section title underline */
+    .sec-title {
+      position: relative;
+    }
+
+    .sec-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--sienna);
+      transition: width 0.6s ease 0.3s;
+    }
+
+    .sec-title.drawn::after {
+      width: 48px;
+    }
+
+    /* ========== NAVBAR ========== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 237, 224, 0.7);
+      border-bottom: 1px solid var(--bg3);
+      backdrop-filter: none;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(245, 237, 224, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .monogram {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--sienna);
+      color: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      flex-shrink: 0;
+    }
+
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-hi);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-md);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--sienna);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ========== HERO SECTION ========== */
+    #hero {
+      padding: 5.5rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-deco {
+      position: absolute;
+      right: -60px;
+      top: -40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 28rem;
+      font-weight: 900;
+      color: var(--bg2);
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 3rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: var(--text-hi);
+      margin-bottom: 0.5rem;
+      animation: fadeUp 0.6s ease 0.25s both;
+    }
+
+    .hero-name .italic {
+      font-style: italic;
+      color: var(--sienna);
+    }
+
+    .eyebrow-hero {
+      animation: fadeUp 0.6s ease 0.1s both;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--text-ghost);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+
+    .hero-tagline {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-md);
+      line-height: 1.85;
+      max-width: 540px;
+      border-left: 2.5px solid var(--sienna);
+      padding-left: 1.1rem;
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.6s ease 0.55s both;
+    }
+
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.6s ease 0.7s both;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      padding: 0.38rem 0.85rem;
+      border: 1px solid var(--bg3);
+      border-radius: 100px;
+      color: var(--text-md);
+      background: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      border-color: var(--sienna);
+      color: var(--sienna);
+      background: var(--sienna-dim);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      animation: fadeUp 0.6s ease 0.85s both;
+    }
+
+    .ktag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+      border: 1px solid var(--bg3);
+      background: var(--bg2);
+      color: var(--text-md);
+    }
+
+    .ktag.gold {
+      border-color: rgba(184, 136, 42, 0.35);
+      background: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    .ktag.sage {
+      border-color: rgba(90, 122, 82, 0.3);
+      background: var(--sage-dim);
+      color: var(--sage);
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: 260px;
+      height: 340px;
+      margin: 0 0 0 -20px;
+      animation: float 6s ease-in-out infinite;
+      grid-column: 2;
+      grid-row: 1 / 4;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      transform: rotate(-2deg);
+      box-shadow: 0 20px 60px rgba(100, 60, 20, 0.2);
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    .photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--sienna);
+      border-radius: 12px;
+      transform: translate(8px, 8px);
+      z-index: 1;
+    }
+
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(196, 92, 40, 0.08);
+      border-radius: 12px;
+      z-index: 3;
+    }
+
+    /* Availability Card */
+    .avail-card {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 1.75rem 1.5rem;
+      border-radius: 8px;
+      position: sticky;
+      top: 70px;
+      z-index: 50;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .avail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulse-green 2s infinite;
+    }
+
+    .avail-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: #4ade80;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.4rem;
+    }
+
+    .avail-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 1.2rem;
+    }
+
+    .avail-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 1.2rem;
+    }
+
+    .avail-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .avail-stat {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .avail-stat:last-child {
+      border-bottom: none;
+    }
+
+    .avail-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold-lt);
+      line-height: 1;
+      margin-bottom: 0.15rem;
+    }
+
+    .avail-stat-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(245, 237, 224, 0.5);
+      line-height: 1.4;
+    }
+
+    .avail-cta {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      background: var(--gold-lt);
+      padding: 0.65rem 1rem;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .avail-cta:hover {
+      background: #e8bb60;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .avail-card {
+        display: none;
+      }
+
+      .photo-wrap {
+        grid-column: 1;
+        grid-row: auto;
+        width: 200px;
+        height: 260px;
+        margin: 0 auto 2rem;
+        position: relative;
+      }
+
+      .hero-deco {
+        font-size: 12rem;
+        right: -20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name {
+        font-size: 2.8rem;
+      }
+    }
+
+    /* ========== MARQUEE STRIP ========== */
+    #marquee {
+      background: var(--ink);
+      padding: 0.85rem 0;
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+
+    .marquee-content {
+      display: flex;
+      animation: marquee 55s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--sienna);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0 2rem;
+    }
+
+    /* ========== SECTION HEADER ========== */
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 2.25rem;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .sec-num {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.7rem;
+      color: var(--text-ghost);
+      min-width: 30px;
+    }
+
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-hi);
+      letter-spacing: -0.01em;
+    }
+
+    .sec-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--bg3), transparent);
+    }
+
+    .sec-deco {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: var(--sienna);
+      opacity: 0.5;
+    }
+
+    /* ========== EXPERIENCE SECTION ========== */
+    #work {
+      padding: 3rem 0;
+    }
+
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--bg3);
+      border-radius: 8px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.1rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .exp-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(100, 60, 20, 0.1);
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--sienna), var(--gold));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .exp-card-num {
+      position: absolute;
+      right: 1.2rem;
+      top: 0.3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 900;
+      color: #f0e6d8;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exp-role {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-hi);
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-company {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--sienna);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .exp-period {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.66rem;
+      color: var(--text-lo);
+      padding: 0.2rem 0.65rem;
+      border: 1px solid var(--bg3);
+      border-radius: 100px;
+      background: var(--bg);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .exp-bullets {
+      padding-left: 1.1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exp-bullets li {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text-md);
+      line-height: 1.8;
+      margin-bottom: 0.2rem;
+      list-style: disc;
+    }
+
+    .exp-bullets strong {
+      color: var(--text-hi);
+      font-weight: 700;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .exp-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      padding: 0.18rem 0.55rem;
+      background: var(--bg);
+      border: 1px solid var(--bg3);
+      color: var(--text-lo);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .exp-top {
+        flex-direction: column;
+      }
+    }
+
+    /* ========== SKILLS SECTION ========== */
+    #skills {
+      padding: 3rem 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--bg3);
+      border: 1px solid var(--bg3);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .skill-cell {
+      background: var(--surface);
+      padding: 1.5rem 1.6rem;
+      transition: background 0.2s;
+    }
+
+    .skill-cell:hover {
+      background: #fdf6ed;
+    }
+
+    .skill-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--bg3);
+    }
+
+    .skill-head span:first-child {
+      font-size: 1.2rem;
+    }
+
+    .skill-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-hi);
+    }
+
+    .skill-items {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-md);
+      line-height: 2;
+    }
+
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========== EDUCATION SECTION ========== */
+    #education {
+      padding: 3rem 0;
+    }
+
+    .edu-cards-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-card {
+      flex: 1;
+      min-width: 280px;
+      background: var(--surface);
+      border: 1px solid var(--bg3);
+      border-left: 3px solid var(--sienna);
+      border-radius: 8px;
+      padding: 1.3rem 1.6rem;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .edu-year {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-lo);
+      font-weight: 300;
+    }
+
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-hi);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-school {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-md);
+    }
+
+    @media (max-width: 768px) {
+      .edu-cards-row {
+        flex-direction: column;
+      }
+
+      .edu-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========== NUMBERS SECTION ========== */
+    #numbers {
+      padding: 3rem 0;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--bg3);
+      border-radius: 8px;
+      padding: 1.75rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(100, 60, 20, 0.08);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sienna), var(--gold-lt));
+    }
+
+    .stat-card::after {
+      content: '◆';
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      color: #f0e6d8;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--sienna);
+      line-height: 1;
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-label {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem;
+      color: var(--text-md);
+      line-height: 1.55;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========== CERTIFICATIONS SECTION ========== */
+    #certs {
+      padding: 3rem 0;
+    }
+
+    .cert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .cert-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.3rem;
+      background: var(--surface);
+      border: 1px solid var(--bg3);
+      border-radius: 8px;
+      transition: border-color 0.2s, background 0.2s;
+      gap: 1rem;
+    }
+
+    .cert-row:hover {
+      border-color: var(--bg2);
+      background: #fdf6ed;
+    }
+
+    .cert-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .cert-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .cert-name {
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-hi);
+    }
+
+    .cert-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      padding: 0.18rem 0.6rem;
+      border: 1px solid rgba(184, 136, 42, 0.3);
+      border-radius: 100px;
+      color: var(--gold);
+      background: var(--gold-dim);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      .cert-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--bg3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-ghost);
+    }
+
+    .footer-sig {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--bg3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-lo);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--sienna);
+    }
+
+    /* ========== CUSTOM CURSOR ========== */
+    #cursor {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--sienna);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s, height 0.15s;
+      display: none;
+    }
+
+    #cursor.visible {
+      display: block;
+    }
+
+    #cursor.scaled {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Hide default cursor on interactive elements */
+    a, button, [role="button"] {
+      cursor: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-left">
+      <div class="monogram">UV</div>
+      <span class="nav-name">Uday Vadher</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#numbers">Numbers</a></li>
+      <li><a href="#certs">Certs</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-deco">U</div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="eyebrow eyebrow-hero">
+          Senior Relationship Manager · Ahmedabad & GIFT City
+        </div>
+        <h1 class="hero-name">Uday <span class="italic">Vadher</span></h1>
+        <p class="hero-subtitle">Marketing strategist. Real estate advisor. Brand builder.</p>
+        <p class="hero-tagline">Real estate professional specializing in residential and commercial transactions across Ahmedabad and GIFT City. Closed ₹5.3+ Cr in property transactions within 60 days. I work at the intersection of investment advisory, market research, and trust-based client strategy — not speculation, not hype.</p>
+        
+        <div class="hero-contacts">
+          <a href="mailto:udayvadher2002@gmail.com" class="chip">✉ udayvadher2002@gmail.com</a>
+          <a href="https://linkedin.com/in/udayrvadher" target="_blank" rel="noopener" class="chip">↗ linkedin.com/in/udayrvadher</a>
+          <a href="tel:+917201972071" class="chip">✆ +91 7201972071</a>
+          <span class="chip">◎ Ahmedabad, Gujarat</span>
+        </div>
+
+        <div class="hero-tags">
+          <span class="ktag">GIFT City</span>
+          <span class="ktag gold">Investor Advisory</span>
+          <span class="ktag gold">High-Ticket Closing</span>
+          <span class="ktag">Micro-Market Analysis</span>
+          <span class="ktag sage">SEO</span>
+          <span class="ktag sage">Content Strategy</span>
+          <span class="ktag">B2B Sales</span>
+          <span class="ktag sage">Personal Branding</span>
+          <span class="ktag gold">MBA 2025</span>
+          <span class="ktag">Offline Marketing</span>
+          <span class="ktag sage">Print Design</span>
+          <span class="ktag sage">Canva</span>
+        </div>
+      </div>
+
+      <div class="photo-wrap reveal">
+        <img src="uday.jpg" alt="Uday Vadher">
+      </div>
+
+      <div class="avail-card">
+        <div class="avail-dot"></div>
+        <div class="avail-label">Open to connect</div>
+        <div class="avail-title">Real Estate & Marketing Professional</div>
+        <div class="avail-divider"></div>
+        <div class="avail-stats">
+          <div class="avail-stat">
+            <div class="avail-stat-num stat-num" data-target="₹5.3Cr+">₹5.3Cr+</div>
+            <div class="avail-stat-desc">Closed in 60 days</div>
+          </div>
+          <div class="avail-stat">
+            <div class="avail-stat-num stat-num" data-target="99.61%">99.61%</div>
+            <div class="avail-stat-desc">CMAT Percentile</div>
+          </div>
+          <div class="avail-stat">
+            <div class="avail-stat-num stat-num" data-target="6300">6,300+</div>
+            <div class="avail-stat-desc">LinkedIn followers</div>
+          </div>
+        </div>
+        <a href="mailto:udayvadher2002@gmail.com" class="avail-cta">Get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<section id="marquee">
+  <div class="marquee-content">
+    <span class="marquee-text">GIFT City Specialist · Real Estate Advisory · Marketing Strategy · Brand Building · SEO · Offline Campaigns · Content Creation · B2B Sales · Investor Relations · Personal Branding · </span>
+    <span class="marquee-text">GIFT City Specialist · Real Estate Advisory · Marketing Strategy · Brand Building · SEO · Offline Campaigns · Content Creation · B2B Sales · Investor Relations · Personal Branding · </span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="work" class="reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">i</span>
+      <h2 class="sec-title">Work Experience</h2>
+      <div class="sec-line"></div>
+      <span class="sec-deco">✦</span>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-card-num">01</div>
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">Senior Relationship Manager</div>
+          <div class="exp-company">PropTiger.com / Aurum PropTech</div>
+        </div>
+        <span class="exp-period">Nov 2025 — Present</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Closed <strong>₹5.3+ Cr across 6 high-ticket transactions</strong> in GIFT City and Ahmedabad within first 60 days, managing the full cycle from lead qualification to final closure</li>
+        <li>Specializing in <strong>GIFT City, Gota, SG Highway, Shela, and Bopal</strong> — advising clients on pricing, rental yield, and appreciation potential</li>
+        <li>Maintaining a <strong>strong conversion ratio</strong> through structured follow-ups and a trust-based advisory approach</li>
+        <li>Leading site visits, price negotiations, and booking processes in coordination with developers</li>
+        <li>Building long-term investor relationships to drive referrals and repeat business</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="exp-tag">GIFT City</span>
+        <span class="exp-tag">High-Ticket Closing</span>
+        <span class="exp-tag">Investor Advisory</span>
+        <span class="exp-tag">Deal Negotiation</span>
+        <span class="exp-tag">Micro-Market Analysis</span>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-card-num">02</div>
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">Business Development Executive</div>
+          <div class="exp-company">DRC Systems India Ltd</div>
+        </div>
+        <span class="exp-period">Jun 2025 — Oct 2025</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Generated <strong>B2B leads via LinkedIn and cold outreach</strong>, building targeted client lists across universities, GIFT City businesses, and real estate sectors</li>
+        <li>Conducted market research and tender documentation for customized proposals</li>
+        <li>Participated in client meetings, contributing to solution pitching and communication</li>
+        <li>Explored new markets, strengthening sales pipeline and revenue opportunities</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="exp-tag">B2B Sales</span>
+        <span class="exp-tag">Lead Generation</span>
+        <span class="exp-tag">Cold Outreach</span>
+        <span class="exp-tag">Proposal Writing</span>
+      </div>
+    </div>
+
+    <div class="exp-card reveal">
+      <div class="exp-card-num">03</div>
+      <div class="exp-top">
+        <div>
+          <div class="exp-role">SEO & Content Intern</div>
+          <div class="exp-company">Bacancy Technology</div>
+        </div>
+        <span class="exp-period">May 2024 — Jul 2024</span>
+      </div>
+      <ul class="exp-bullets">
+        <li>Wrote <strong>25+ blog articles</strong> using keyword and competitor analysis to improve organic search rankings</li>
+        <li>Conducted SEO audits using GA4, analyzing website performance and backlink profiles</li>
+        <li>Supported content planning and digital campaign initiatives across on-page and off-page SEO</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="exp-tag">SEO</span>
+        <span class="exp-tag">Content Writing</span>
+        <span class="exp-tag">GA4</span>
+        <span class="exp-tag">Keyword Research</span>
+        <span class="exp-tag">SEO Audits</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">ii</span>
+      <h2 class="sec-title">Core Skills</h2>
+      <div class="sec-line"></div>
+      <span class="sec-deco">✦</span>
+    </div>
+
+    <div class="skills-grid reveal">
+      <div class="skill-cell">
+        <div class="skill-head">
+          <span>🏙</span>
+          <span class="skill-title">Real Estate & Sales</span>
+        </div>
+        <div class="skill-items">Investor Advisory<br>Residential & Commercial<br>High-Ticket Closing<br>Negotiation<br>Site Visit Management</div>
+      </div>
+
+      <div class="skill-cell">
+        <div class="skill-head">
+          <span>📍</span>
+          <span class="skill-title">Market Expertise</span>
+        </div>
+        <div class="skill-items">GIFT City Knowledge<br>Micro-Market Analysis<br>Property Sourcing<br>Pricing Strategy<br>Deal Structuring</div>
+      </div>
+
+      <div class="skill-cell">
+        <div class="skill-head">
+          <span>📡</span>
+          <span class="skill-title">Digital Marketing</span>
+        </div>
+        <div class="skill-items">SEO On/Off/Technical<br>Content Strategy<br>Social Media Mgmt<br>Digital Lead Gen<br>Personal Branding</div>
+      </div>
+
+      <div class="skill-cell">
+        <div class="skill-head">
+          <span>🎨</span>
+          <span class="skill-title">Creative & Offline</span>
+        </div>
+        <div class="skill-items">Print Design (Canva)<br>Offline Campaigns<br>Brand Positioning<br>Copywriting<br>Event Marketing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">iii</span>
+      <h2 class="sec-title">Education</h2>
+      <div class="sec-line"></div>
+      <span class="sec-deco">✦</span>
+    </div>
+
+    <div class="edu-cards-row reveal">
+      <div class="edu-card">
+        <div class="edu-year">2023 — 2025</div>
+        <div>
+          <div class="edu-degree">MBA — Marketing & Finance</div>
+          <div class="edu-school">B.K. School of Professional and Management Studies, Gujarat University</div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-year">2020 — 2023</div>
+        <div>
+          <div class="edu-degree">B.Com — Business & Commerce</div>
+          <div class="edu-school">Somlalit Commerce College, Gujarat University</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers" class="reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">iv</span>
+      <h2 class="sec-title">Numbers That Matter</h2>
+      <div class="sec-line"></div>
+      <span class="sec-deco">✦</span>
+    </div>
+
+    <div class="stat-grid reveal">
+      <div class="stat-card">
+        <div class="stat-num" data-target="₹5.3Cr+">₹5.3Cr+</div>
+        <div class="stat-label">Closed in first 60 days at PropTiger across 6 high-ticket transactions</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-num" data-target="99.61%">99.61%</div>
+        <div class="stat-label">CMAT Percentile — AIR 228 (2023)</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-num" data-target="6300">6,300+</div>
+        <div class="stat-label">LinkedIn followers built through strategic personal branding</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-num" data-target="5000">5,000+</div>
+        <div class="stat-label">Event footfall generated — Renaissance 2025</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-num" data-target="130000">1.3L</div>
+        <div class="stat-label">Organic campaign impressions — Renaissance 2025</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-num" data-target="25">25+</div>
+        <div class="stat-label">SEO blog articles written and ranked at Bacancy Technology</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" class="reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-num">v</span>
+      <h2 class="sec-title">Certifications</h2>
+      <div class="sec-line"></div>
+      <span class="sec-deco">✦</span>
+    </div>
+
+    <div class="cert-list reveal">
+      <div class="cert-row">
+        <div class="cert-left">
+          <div class="cert-dot"></div>
+          <span class="cert-name">Become an AI-Powered People Manager</span>
+        </div>
+        <span class="cert-badge">LinkedIn Learning</span>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-left">
+          <div class="cert-dot"></div>
+          <span class="cert-name">Succeeding as a First-Time Tech Manager</span>
+        </div>
+        <span class="cert-badge">PMI</span>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-left">
+          <div class="cert-dot"></div>
+          <span class="cert-name">Email Marketing</span>
+        </div>
+        <span class="cert-badge">HubSpot Academy</span>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-left">
+          <div class="cert-dot"></div>
+          <span class="cert-name">Inbound Sales</span>
+        </div>
+        <span class="cert-badge">HubSpot Academy</span>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-left">
+          <div class="cert-dot"></div>
+          <span class="cert-name">Foundations of Learning Management Systems (LMS)</span>
+        </div>
+        <span class="cert-badge">LinkedIn Learning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="reveal">
+  <div class="container" style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <span class="footer-copy">© 2025 Uday Vadher · Ahmedabad, India</span>
+    <span class="footer-sig">UV</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/udayrvadher" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:udayvadher2002@gmail.com">Email</a>
+      <a href="tel:+917201972071">+91 7201972071</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ========== CUSTOM CURSOR ==========
+  const cursor = document.getElementById('cursor');
+  let mouseX = 0;
+  let mouseY = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+  const lerpFactor = 0.12;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.classList.add('visible');
+  });
+
+  function updateCursorPosition() {
+    cursorX += (mouseX - cursorX) * lerpFactor;
+    cursorY += (mouseY - cursorY) * lerpFactor;
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    requestAnimationFrame(updateCursorPosition);
+  }
+  updateCursorPosition();
+
+  // Cursor scale on hover
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('stat-card') || e.target.classList.contains('exp-card')) {
+      cursor.classList.add('scaled');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('stat-card') || e.target.classList.contains('exp-card')) {
+      cursor.classList.remove('scaled');
+    }
+  });
+
+  // ========== INTERSECTION OBSERVER FOR SCROLL REVEALS ==========
+  const revealElements = document.querySelectorAll('.reveal');
+  const observerOptions = {
+    threshold: 0.08,
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+  // ========== SECTION TITLE UNDERLINE DRAW ==========
+  const secTitles = document.querySelectorAll('.sec-title');
+  const titleObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('drawn');
+      }
+    });
+  }, observerOptions);
+
+  secTitles.forEach((title) => {
+    titleObserver.observe(title);
+  });
+
+  // ========== COUNT-UP ANIMATION ==========
+  function countUp(element, target, duration = 1800) {
+    // Parse the target value
+    let numericValue;
+    if (target.includes('Cr')) {
+      numericValue = parseFloat(target) * 10000000;
+    } else if (target.includes('L')) {
+      numericValue = parseFloat(target) * 100000;
+    } else if (target.includes('%')) {
+      numericValue = parseFloat(target);
+    } else {
+      numericValue = parseInt(target);
+    }
+
+    if (isNaN(numericValue)) {
+      // Non-numeric, just fade in
+      element.style.opacity = '1';
+      return;
+    }
+
+    const startTime = Date.now();
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    function animate() {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeOut(progress);
+      const current = Math.floor(numericValue * eased);
+
+      // Format the output
+      let displayValue;
+      if (target.includes('Cr')) {
+        displayValue = (current / 10000000).toFixed(1) + 'Cr+';
+      } else if (target.includes('L')) {
+        displayValue = (current / 100000).toFixed(1) + 'L';
+      } else if (target.includes('%')) {
+        displayValue = (numericValue * eased).toFixed(2) + '%';
+      } else {
+        displayValue = current.toLocaleString('en-IN');
+        if (target.includes('+')) displayValue += '+';
+      }
+
+      element.textContent = displayValue;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    }
+
+    animate();
+  }
+
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        const target = entry.target.dataset.target;
+        countUp(entry.target, target);
+      }
+    });
+  }, observerOptions);
+
+  statNums.forEach((stat) => {
+    statObserver.observe(stat);
+  });
+
+  // ========== NAVBAR SCROLL EFFECT ==========
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // ========== ACTIVE NAV LINK DETECTION ==========
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+</script>
+
+</body>
+</html>
